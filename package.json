@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/tkhduracell/node-lightpack-led/issues"
   },
-  "homepage": "https://github.com/tkhduracell/node-lightpack-led"
+  "homepage": "https://github.com/tkhduracell/node-lightpack-led",
+  "dependencies": {
+    "node-hid": "^0.5.4"
+  }
 }
