@@ -1,6 +1,8 @@
 # node-lightpack-led
 Control you lightpack directly without the Prismatik software using node and HID.
 
+[![npm version](https://badge.fury.io/js/node-lightpack-led.svg)](https://badge.fury.io/js/node-lightpack-led)
+
 ## Getting started
 
 `npm install git+ssh://git@github.com:tkhduracell/node-lightpack-led.git --save`
