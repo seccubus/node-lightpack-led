@@ -1,0 +1,26 @@
+{
+  "name": "node-lightpack-led",
+  "version": "1.0.0",
+  "description": "Control you lightpack directly without the Prismatik software.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tkhduracell/node-lightpack-led.git"
+  },
+  "keywords": [
+    "prismatik",
+    "lightpack",
+    "led",
+    "usb",
+    "hid"
+  ],
+  "author": "Filip Lindqvist <buggfille+lightpack@gmail.com> (http://filiplindqvist.com/)",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/tkhduracell/node-lightpack-led/issues"
+  },
+  "homepage": "https://github.com/tkhduracell/node-lightpack-led"
+}
