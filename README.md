@@ -8,12 +8,13 @@ Control you lightpack directly without the Prismatik software using node and HID
 `npm install git+ssh://git@github.com:tkhduracell/node-lightpack-led.git --save`
 
 ## Usage
+**Get devices**
 ```js
 const lp = require('node-lightpack-led');
 console.log(lp.getDevices());
 ```
 
-**Output**
+Returns a list of devices.
 ```js
 [
   {
@@ -23,10 +24,18 @@ console.log(lp.getDevices());
     manufacturer: "lightpack.googlecode.com",
     product: "Lightpack",
     setColor: function(color: color-struct, debug: bool) { ... },
-    setColorRGB: function(r: int, g: int, b: int, debug: bool) { ... }, 
+    setColorRGB: function(r: int, g: int, b: int, debug: bool) { ... },
     enable: function(debug: bool) { ... },
     disable: function(debug: bool) { ... },
-    write: function(data: int[65]) { ... } 
+    write: function(data: int[65]) { ... }
   }
 ]
+```
+
+**Set color of leds to red**
+```js
+    const lp = require('node-lightpack-led');
+    lp.getDevice().forEach(function(devive) {
+        device.setColorRGB(255, 0, 0);
+    });
 ```
