@@ -1,6 +1,6 @@
 {
   "name": "node-lightpack-led",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Control you lightpack directly without the Prismatik software.",
   "main": "index.js",
   "scripts": {
