@@ -1,6 +1,6 @@
 {
   "name": "node-lightpack-led",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Control you lightpack directly without the Prismatik software.",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/tkhduracell/node-lightpack-led",
   "dependencies": {
-    "node-hid": "^0.5.4"
+    "node-hid": "^0.7.2"
   }
 }
