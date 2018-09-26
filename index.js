@@ -50,7 +50,7 @@ function getDevices (_timeout, _forceupdate) {
 
   /* clean up old device memory */
   const discoveredIds = discovered.map(dev => dev.serialNumber)
-  deviceMemory.map(dev => dev.id).forEach(id => {
+  Object.keys(deviceMemory).forEach(id => {
     if (discoveredIds.indexOf(id) === -1) {
       delete deviceMemory[id]
     }
