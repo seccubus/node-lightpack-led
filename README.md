@@ -35,7 +35,22 @@ Returns a list of devices.
 **Set color of leds to red**
 ```js
     const lp = require('node-lightpack-led');
-    lp.getDevice().forEach(function(devive) {
+    lp.getDevice().forEach(function(device) {
         device.setColorRGB(255, 0, 0);
+    });
+```
+
+**Address leds individually**
+```js
+    const lp = require('node-lightpack-led');
+    const colors = [
+      { r: 255, g: 0, b: 0 },
+      { r: 255, g: 0, b: 0 },
+      { r: 255, g: 0, b: 0 }      
+    ]
+    lp.getDevice().forEach(function(device) {
+        var debug = false
+        var repeatLast = false     // Set this to true to repeat the last color instead of the entire array
+        device.setColorArray(colors, bedug, repeatLast );
     });
 ```
