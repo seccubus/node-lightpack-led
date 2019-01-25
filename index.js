@@ -81,11 +81,11 @@ function readDeviceInfo (data, deviceInfo) {
       setColorArray(this, [ rgb ], debug || false)
     },
     setColorRGB: function (r, g, b, debug) {
-      setColor(this, {
+      setColorArray(this, [{
         r: r,
         g: g,
         b: b
-      }, debug || false)
+      }], debug || false)
     },
     setColorArray: function ( colors, debug, repeatlast ) {
       setColorArray(this, colors, debug, repeatlast || false)
@@ -141,7 +141,7 @@ function setColorArray (device, color, debug, repeatlast) {
 
     // Figure out which color is next
     arrayIndex++
-    if (arrayIndex >= color.length() ) {
+    if (arrayIndex >= color.length ) {
       if ( repeatlast ) {
         arrayIndex = color.length - 1
       } else {
