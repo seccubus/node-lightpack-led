@@ -1,6 +1,6 @@
 {
   "name": "node-lightpack-led",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Control you lightpack directly without the Prismatik software.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "hid"
   ],
   "author": "Filip Lindqvist <buggfille+lightpack@gmail.com> (http://filiplindqvist.com/)",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/tkhduracell/node-lightpack-led/issues"
   },

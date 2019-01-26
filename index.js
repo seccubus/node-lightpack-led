@@ -78,14 +78,17 @@ function readDeviceInfo (data, deviceInfo) {
       device.close()
     },
     setColor: function (rgb, debug) {
-      setColor(this, rgb, debug || false)
+      setColorArray(this, [ rgb ], false, debug || false)
     },
     setColorRGB: function (r, g, b, debug) {
-      setColor(this, {
+      setColorArray(this, [{
         r: r,
         g: g,
         b: b
-      }, debug || false)
+      }], false, debug || false)
+    },
+    setColorArray: function ( colors, repeatlast, debug ) {
+      setColorArray(this, colors, repeatlast || false, debug || false)
     },
     enable: function (debug) {
       this.setColorRGB(255, 255, 255, debug)
@@ -108,8 +111,10 @@ function readDeviceFrame (device, deviceId, timeout) {
   return data
 }
 
-function setColor (device, color, debug) {
-  if (debug) console.log('Setting color', color, 'on device', device.id)
+function setColorArray (device, color, repeatlast, debug) {
+  if (debug) console.log('Setting color array', color, 'on device', device.id)
+
+  repeatlast = repeatlast || false
 
   const command = Array(BUFFER_SIZE)
 
@@ -119,19 +124,31 @@ function setColor (device, color, debug) {
 
   command[1] = CMD_UPDATE_LEDS
 
+  var arrayIndex = 0;
   for (var j = 0; j < device.leds; j++) {
     var buffIndex = WRITE_BUFFER_INDEX_DATA_START + LED_REMAP[j % 10] * SIZE_OF_LED_COLOR
 
+    const ledColor = color[arrayIndex]
     // Send main 8 bits for compability with existing devices
-    command[buffIndex++] = (color.r & 0x0FF0) >> 4
-    command[buffIndex++] = (color.g & 0x0FF0) >> 4
-    command[buffIndex++] = (color.b & 0x0FF0) >> 4
+    command[buffIndex++] = (ledColor.r & 0x0FF0) >> 4
+    command[buffIndex++] = (ledColor.g & 0x0FF0) >> 4
+    command[buffIndex++] = (ledColor.b & 0x0FF0) >> 4
 
     // Send over 4 bits for devices revision >= 6
     // All existing devices ignore it
-    command[buffIndex++] = (color.r & 0x000F)
-    command[buffIndex++] = (color.g & 0x000F)
-    command[buffIndex++] = (color.b & 0x000F)
+    command[buffIndex++] = (ledColor.r & 0x000F)
+    command[buffIndex++] = (ledColor.g & 0x000F)
+    command[buffIndex++] = (ledColor.b & 0x000F)
+
+    // Figure out which color is next
+    arrayIndex++
+    if (arrayIndex >= color.length ) {
+      if ( repeatlast ) {
+        arrayIndex = color.length - 1
+      } else {
+        arrayIndex = 0
+      }
+    }
   }
 
   if (debug) console.log(device.id, 'write', JSON.stringify(command))
