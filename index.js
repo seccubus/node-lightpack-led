@@ -78,17 +78,17 @@ function readDeviceInfo (data, deviceInfo) {
       device.close()
     },
     setColor: function (rgb, debug) {
-      setColorArray(this, [ rgb ], debug || false)
+      setColorArray(this, [ rgb ], false, debug || false)
     },
     setColorRGB: function (r, g, b, debug) {
       setColorArray(this, [{
         r: r,
         g: g,
         b: b
-      }], debug || false)
+      }], false, debug || false)
     },
-    setColorArray: function ( colors, debug, repeatlast ) {
-      setColorArray(this, colors, debug, repeatlast || false)
+    setColorArray: function ( colors, repeatlast, debug ) {
+      setColorArray(this, colors, repeatlast || false, debug || false)
     },
     enable: function (debug) {
       this.setColorRGB(255, 255, 255, debug)
@@ -111,7 +111,7 @@ function readDeviceFrame (device, deviceId, timeout) {
   return data
 }
 
-function setColorArray (device, color, debug, repeatlast) {
+function setColorArray (device, color, repeatlast, debug) {
   if (debug) console.log('Setting color array', color, 'on device', device.id)
 
   repeatlast = repeatlast || false
