@@ -128,16 +128,17 @@ function setColorArray (device, color, debug, repeatlast) {
   for (var j = 0; j < device.leds; j++) {
     var buffIndex = WRITE_BUFFER_INDEX_DATA_START + LED_REMAP[j % 10] * SIZE_OF_LED_COLOR
 
+    ledColor = color[arrayIndex]
     // Send main 8 bits for compability with existing devices
-    command[buffIndex++] = (color[arrayIndex].r & 0x0FF0) >> 4
-    command[buffIndex++] = (color[arrayIndex].g & 0x0FF0) >> 4
-    command[buffIndex++] = (color[arrayIndex].b & 0x0FF0) >> 4
+    command[buffIndex++] = (ledColor.r & 0x0FF0) >> 4
+    command[buffIndex++] = (ledColor.g & 0x0FF0) >> 4
+    command[buffIndex++] = (ledColor.b & 0x0FF0) >> 4
 
     // Send over 4 bits for devices revision >= 6
     // All existing devices ignore it
-    command[buffIndex++] = (color[arrayIndex].r & 0x000F)
-    command[buffIndex++] = (color[arrayIndex].g & 0x000F)
-    command[buffIndex++] = (color[arrayIndex].b & 0x000F)
+    command[buffIndex++] = (ledColor.r & 0x000F)
+    command[buffIndex++] = (ledColor.g & 0x000F)
+    command[buffIndex++] = (ledColor.b & 0x000F)
 
     // Figure out which color is next
     arrayIndex++
