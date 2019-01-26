@@ -49,8 +49,8 @@ Returns a list of devices.
       { r: 255, g: 0, b: 0 }      
     ]
     lp.getDevices().forEach(function(device) {
-        var debug = false
-        var repeatLast = false     // Set this to true to repeat the last color instead of the entire array
+        const debug = false // No debug prints
+        const repeatLast = false // Set this to true to repeat the last color instead of the entire array
         device.setColorArray(colors, repeatLast, debug );
     });
 ```
