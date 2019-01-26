@@ -1,37 +1,43 @@
+const lp = require('../index.js'); // require('node-lightpack-led')
 
-const lp = require('node-lightpack-led');
-//leds(255,0,255)
-let inc=25
+let inc = 25
+
 for (let x=0; x <= 255; x+=inc ) {
 	    msleep(150);
-	    leds(x,0,0);
+	    leds(x, 0, 0);
 }
+
 for (let x=0; x <= 255; x+=inc ) {
 	    msleep(150);
-	    leds(0,x,0);
+	    leds(0, x, 0);
 }
+
 for (let x=0; x <= 255; x+=inc ) {
 	    msleep(150);
-	    leds(0,0,x);
+	    leds(0, 0, x);
 }
+
 for (let x=0; x <= 255; x+=inc ) {
 	    msleep(150);
-	    leds(x,x,0);
+	    leds(x, x, 0);
 }
+
 for (let x=0; x <= 255; x+=inc ) {
 	    msleep(150);
-	    leds(x,0,x);
+	    leds(x, 0, x);
 }
+
 for (let x=0; x <= 255; x+=inc ) {
 	    msleep(150);
-	    leds(0,x,x);
+	    leds(0, x, x);
 }
+
 for (let x=0; x <= 255; x+=inc ) {
 	    msleep(150);
-	    leds(x,x,x);
+	    leds(x, x, x);
 }
+
 leds(0,0,0);
-
 
 
 function leds(red,green,blue) {   
