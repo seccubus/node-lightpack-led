@@ -4,7 +4,8 @@
   "description": "Control you lightpack directly without the Prismatik software.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
   "homepage": "https://github.com/tkhduracell/node-lightpack-led",
   "dependencies": {
     "node-hid": "^0.7.2"
+  },
+  "devDependencies": {
+    "release-it": "^10.0.4"
   }
 }
