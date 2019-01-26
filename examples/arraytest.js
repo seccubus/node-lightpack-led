@@ -1,5 +1,4 @@
-
-const lp = require('node-lightpack-led');
+const lp = require('../index.js'); // require('node-lightpack-led')
 
 rwb = [
   {r: 255, g:0, b:0 },
@@ -11,12 +10,16 @@ console.log("LEDS off")
 lp.getDevices().forEach(function(device) {
     device.enable();
 });
+
 msleep(1000)
+
 console.log("Setting to red- whte- blue, iterating")
 lp.getDevices().forEach(function(device) {
     device.setColorArray(rwb, true, false);
 });
+
 msleep(3000)
+
 console.log("Setting to red- whte- blue, repeating last")
 lp.getDevices().forEach(function(device) {
     device.setColorArray(rwb, true, true);
