@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git@github.com:tkhduracell/node-lightpack-led.git"
   },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "prismatik",
     "lightpack",
