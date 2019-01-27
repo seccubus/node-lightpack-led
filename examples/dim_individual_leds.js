@@ -18,7 +18,7 @@ async function main () {
 
   console.log('Setting to red-white-blue, iterating')
   lp.getDevices().forEach(function (device) {
-    device.setColorArray(rwb, true, false)
+    device.setColorArray(rwb, false, true)
   })
 
   sleep(3000)
